@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/modernizr-custom.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.10.0/math.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://wzrd.in/standalone/function-plot@1.14.0"></script>
+</head>
+<body>
+    <form id="form">
+        <label for="eq">Introduce una ecuación</label>
+        <input type="text" id="eq" value="4 * sin(x) + 5 * cos(x/2)" />
+        <input type="submit" value="Dibujar" />
+      </form>
+      
+      <div id="plot"></div>
+
+      <script>
+          function draw() {
+        try {
+          functionPlot({
+            target: '#plot',
+            data: [{
+              fn: document.getElementById('eq').value,
+              sampler: 'builtIn',  // this will make function-plot use the evaluator of math.js
+              graphType: 'polyline'
+            }]
+          });
+        }
+        catch (err) {
+          console.log(err);
+          alert(err);
+        }
+      }
+    
+      document.getElementById('form').onsubmit = function (event) {
+        event.preventDefault();
+        draw();
+      };
+    
+      draw();
+      </script>
+</body>
+</html>

@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Matemática</title>
+    <meta name="description" content="Blueprint: A basic template for a page stack navigation effect"/>
+    <meta name="keywords" content="blueprint, template, html, css, page stack, 3d, perspective, navigation, menu"/>
+    <meta name="author" content="Codrops"/>
+    <link rel="shortcut icon" href="images/icon.ico">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="css/component.css"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/modernizr-custom.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.10.0/math.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://wzrd.in/standalone/function-plot@1.14.0"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+<!-- navigation -->
+<nav class="pages-nav">
+    <div class="pages-nav__item"><a class="link link--page" href="#page-home">Inicio</a></div>
+    <div class="pages-nav__item"><a class="link link--page" href="#page-docu">Funciones con 1 Variable</a></div>
+    <div class="pages-nav__item"><a class="link link--page" href="#page-manuals">Funciones con 2 Variables</a></div>
+    <div class="pages-nav__item"><a class="link link--page" href="#page-software">Funciones con 3 Variables</a></div>
+    <div class="pages-nav__item"><a class="link link--page" href="#page-custom">Dominio &amp; Rango</a></div>
+    <div class="pages-nav__item"><a class="link link--page" href="#page-training">Limites 1 variable</a></div>
+    <div class="pages-nav__item"><a class="link link--page" href="#page-training2">Limites 2 variables</a></div>
+    <div class="pages-nav__item"><a class="link link--page" href="#page-derivadas">Derivadas</a></div>
+    <div class="pages-nav__item "><a class="link link--page " href="#page-buy">Maximos</a></div>
+    <div class="pages-nav__item "><a class="link link--page " href="#page-blog">Minimos</a></div>
+    <div class="pages-nav__item "><a class="link link--page " href="#page-contact">Punto de inflexión</a></div>
+    <div class="pages-nav__item "><a class="link link--page " href="#page-contact2">Integrales</a></div>
+    <div class="pages-nav__item "><a class="link link--page " href="#derivada-parcial">Derivada parcial</a></div>
+    <div class="pages-nav__item "><a class="link link--page " href="#reglas-integracion">Reglas de integración</a></div>
+    <!-- <div class="pages-nav__item "><a class="link link--page " href="#page-contact3">Gráfica</a></div> -->
+    <!-- <div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-buy">Where to buy</a></div>
+    <div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-blog">Blog &amp; News</a></div>
+    <div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-contact">Contact</a></div> -->
+    <div class="pages-nav__item pages-nav__item--social">
+        <a class="link link--social link--faded" href="#"><i class="fa fa-twitter"></i><span
+                class="text-hidden">Twitter</span></a>
+        <a class="link link--social link--faded" href="#"><i class="fa fa-linkedin"></i><span class="text-hidden">LinkedIn</span></a>
+        <a class="link link--social link--faded" href="#"><i class="fa fa-facebook"></i><span class="text-hidden">Facebook</span></a>
+        <a class="link link--social link--faded" href="#"><i class="fa fa-youtube-play"></i><span class="text-hidden">YouTube</span></a>
+    </div>
+</nav>
+<!-- /navigation-->
+<!-- pages stack -->
+<div class="pages-stack">
+    <!-- page -->
+    <div class="page" id="page-home">
+        <!-- Blueprint header -->
+        <header class="bp-header cf">
+            <!--				<span class="bp-header__present">Blueprint <span class="bp-tooltip bp-icon bp-icon&#45;&#45;about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>-->
+            <center>
+                <h1 class="bp-header__title">Funciones Matematicas</h1>
+                 <p class="parrafo">Una función es una relación entre dos conjuntos donde a cada elemento del primer
+                conjunto le corresponde un solo elemento del segundo conjunto. Esta es la definición matemática de una
+                función. Existen funciones comunes que poseen una variable independiente (x) que cambia libremente sin
+                depender de ningún parámetro y una variable dependiente (y) que cambia respecto a x. El cambio que sufre
+                y está definido por una expresión algebraica que funge como regla.</p>
+                <center>
+                    <h1>Temas disponibles</h1>
+					<div class="Carousel">
+						<div class="slick-list" id="slick-list">
+							<button class="slick-arrow slick-prev" id="button-prev">
+								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg>
+							</button>
+							<div class="slick-track" id="track">
+								<div class="slick">
+									<div>
+										<a  href="#">
+											<h4>Funciones con 1 variable</h4>
+											<picture>
+												<img src="images/uno.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+								</div>
+								<div class="slick">
+									<div>
+										<a  href="#">
+											<h4>Funciones con 2 variables</h4>
+											<picture>
+												<img src="images/dos.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+								</div>
+								<div class="slick">
+									<div>
+										<a  href="#">
+										<h4>Funciones con 3 variables</h4>			
+											<picture>
+												<img src="images/tres.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+								</div>
+								<div class="slick">
+									<div>
+										<a  href="#">
+											<h4>Rango y dominio</h4>
+											<picture>
+												<img src="images/cuatro.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+								</div>
+								<div class="slick">
+									<div>
+										<a  href="#">
+											<h4>Limites con 1 variable</h4>
+											<picture>
+												<img src="images/cinco.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+                                </div>
+                                <div class="slick">
+									<div>
+										<a  href="#">
+											<h4>Limites con 2 variables</h4>
+											<picture>
+												<img src="images/seis.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+                                </div>
+                                <div class="slick">
+									<div>
+										<a  href="#">
+											<h4>Derivadas</h4>
+											<picture>
+												<img src="images/siete.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+                                </div>
+                                <div class="slick">
+									<div>
+										<a  href="#">
+											<h4>Maximos</h4>
+											<picture>
+												<img src="images/ocho.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+                                </div>
+                                <div class="slick">
+									<div>
+										<a  href="#">
+											<h4>Minimos</h4>
+											<picture>
+												<img src="images/nueve.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+                                </div>
+                                <div class="slick">
+									<div>
+										<a href="#">
+											<h4>Punto de inflexión</h4>
+											<picture>
+												<img src="images/diez.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+								</div>
+                                <div class="slick">
+									<div>
+										<a href="#">
+											<h4>Integral</h4>
+											<picture>
+												<img src="images/integral0.png" alt="Image">
+											</picture>
+										</a>
+									</div>
+                                </div>
+                                <div class="slick">
+									<div>
+										<a href="#">
+											<h4>Derivada parcial</h4>
+											<picture>
+												<img src="images/dp.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+                                </div>
+                                <div class="slick">
+									<div>
+										<a href="#">
+											<h4>Reglas de integración</h4>
+											<picture>
+												<img src="images/rdi0.jpg" alt="Image">
+											</picture>
+										</a>
+									</div>
+								</div>
+							</div>
+							<button class="slick-arrow slick-next" id="button-next">
+								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+							</button>
+						</div>
+					</div>
+				</center>
+            </center>
+
+           <!-- <center>
+                <p class="video">
+                    <p class="bp-header__desc">
+                        <a href="https://www.youtube.com/watch?v=v4jDUw_RMg4&list=PLWyONXRtuelT7e2waz4vGaYlc_Hi3YpYG&index=121">Aprender Mas Sobre Funciones</a>
+                    </p>
+                             <iframe width="600" height="345" src="https://www.youtube.com/embed/v4jDUw_RMg4" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+           </center> -->
+            </p>
+        </header>
+    </div>
+    <!-- /page -->
+    <div class="page" id="page-docu">
+        <header class="bp-header cf">
+            <center>
+                <h1 class="bp-header__title">Funciones Con 1 Variable</h1>
+            <p class="parrafo">Si recuerdas la primera vez que aprendiste sobre funciones, tal vez te hayan
+                enseñado a imaginar a la función como una máquina que ingiere algo de entrada, lo manipula de alguna
+                manera, y luego escupe alguna cosa de salida.</p>
+            </center>
+
+            <iframe class="video"  align="right" width="560" height="450" src="https://www.youtube.com/embed/qaR0677F7Hw" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            <div class="mainEjemplos">
+                <p class="info">
+                    <form action="" class="mainForm">
+                <p class="bp-header__desc">Ejercicio 1: f(x)= x - 2<sup>3</sup></p>
+
+                
+                <p class="ejercicios">f(x)= <input type="text" name="x" id="a" placeholder="x"> -2
+                    <sup>3</sup> = <span id="result3"></span></p>
+
+                </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcionU()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+            </div>
+            <div class="mainEjemplos">
+                <p class="info">
+                    <form action="" class="mainForm">
+                <p class="bp-header__desc">Ejercicio 2: f(x)= 3x - 3<sup>2</sup>+2x</p>
+                <p class="ejercicios">f(x)= 3<input type="text" id="b" name="x2" placeholder="x"> - 3 <sup>2</sup>+2x = <span id="result4"></span></p>
+                </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcionU2()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+                <br>
+                <div class="button_cont" ><a class="" href="https://www.geogebra.org/calculator" target="_blank" rel="nofollow noopener">Graficar</a></div>
+                <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones</a></div>
+     
+            </div>
+       </header>
+    </div>
+    
+    <div class="page" id="page-manuals">
+        <header class="bp-header cf">
+            <center>
+                <h1 class="bp-header__title">Funciones Con 2 Variables</h1>
+            <p class="parrafo">Una función multivariable es simplemente una función cuya entrada o salida
+                consiste de varios números. En contraste, una función con entradas de un solo número y salidas de un
+                solo número se llama función de una variable.
+            </p>
+            
+        </center>
+        
+            <!-- <span class="bp-header__present">  <a
+                    href="https://dribbble.com/shots/2286042-Stacked-navigation">Nota</a><span
+                    class="bp-tooltip bp-icon bp-icon&#45;&#45;about"
+                    data-content="Algunos autores y profesores usan la palabra multivariable para funciones con entradas de varios números, pero no salidas."></span></span> -->            
+            <div class="mainEjemplos">
+                <p class="" id="ejemplos">
+                    Ejemplos de Funciones con 2 Variables:
+                    
+                    </p>
+                    <iframe align="right" width="560" height="315" src="https://www.youtube.com/embed/at2iRNsPlt0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <p class="info">
+                    
+                    <form action="" class="mainForm">
+                <p class="bp-header__desc">Ejercicio 1: f(x, y)= x - y<sup>2</sup></p>
+                <p class="ejercicios">f(x,y)= <input type="text" name="x" id="x" placeholder="x"> - <input type="text" id="y" name="y" placeholder="y">
+                    <sup>2</sup> = <span id="result1"></span></p>
+
+                </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcion1()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+            </div>
+            <div class="mainEjemplos">
+                <p class="info">
+                    <form action="" class="mainForm">
+                <p class="bp-header__desc">Ejercicio 2: f(x, y)= 3x - y<sup>4-1</sup></p>
+                <p class="ejercicios">f(x,y)= 3<input type="text" id="x2" name="x2" placeholder="x"> -
+                    <input type="text" name="y2" id="y2" placeholder="y">
+                    <sup>4-1</sup> = <span id="result2"></span></p>
+                </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcion2()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+            </div>
+            <br>
+            <div class="button_cont" ><a class="" href="https://www.geogebra.org/calculator" target="_blank" rel="nofollow noopener">Graficar</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones</a></div>
+        </header>
+    </div>
+
+    <div class="page" id="page-software">
+        <header class="bp-header cf">
+            <center>
+                <h1 class="bp-header__title">Funciones Con 3 Variables</h1>
+            <p class="parrafo">
+                Las funciones de varias variables son funciones como cualquier otra, cumplen la misma definición de función; una relación. La diferencia es que una variable dependiente estará regida por más de una variables independiente. Es muy común trabajar con funciones de tres variables, generalmente llamadas z = f(x,y). La idea de relación es más compleja puesto que el valor de z depende no solo del valor de x o de y, sino de puntos coordenados a los que les corresponde un valor de z.
+            </p>
+            </center>
+
+            <div class="mainEjemplos">
+                <p class="info">
+                    <form action="" class="mainForm">
+                        <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/b_Affw5ArMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <p class="bp-header__desc">Ejercicio 1: f(x, y, z)= x - y<sup>3</sup> -z</p>
+                <p class="ejercicios">f(x,y, z)= <input type="text" id="w1" name="x2" placeholder="x"> -
+                    <input type="text" name="y2" id="w2" placeholder="y">
+                    <sup>3</sup> -  <input type="text" name="y2" id="w3" placeholder="z">= <span id="finalres"></span></p>
+                </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcionE()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+                <p class="info">
+                    <form action="" class="mainForm">
+                <p class="bp-header__desc">Ejercicio 2: f(x, y, z)= 2x - 3y<sup>2</sup> -z</p>
+                <p class="ejercicios">f(x,y, z)= 2<input type="text" id="j1" name="x2" placeholder="x"> -
+                    3<input type="text" name="y2" id="j2" placeholder="y">
+                    <sup>2</sup> -  <input type="text" name="y2" id="j3" placeholder="z">= <span id="resultU"></span></p>
+                </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcionR()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+            </div>
+            <br>
+            <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+    
+    <div class="page" id="page-custom">
+        <header class="bp-header cf">
+            <center>
+                <h1 class="bp-header__title">Rango &amp; Dominio</h1>
+            <p class="info">
+                El dominio de una función f ( x ) es el conjunto de todos los valores para los cuales la función está definida, y el rango de la función es el conjunto de todos los valores que f toma.
+            </p>
+            </center>
+
+            <div class="mainEjemplos">
+                <p class="info">
+                    <form action="" class="mainForm">
+                        <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/H40lcwlgPMk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <p class="bp-header__desc">Ejercicio 1: f(x)= x<sup>2</sup>
+                     <br><class="ejercicios">Dominio = { <input id="n11" type="text"> <input id="n21" type="text"> <input id="n31" type="text"> <input id="n41" type="text"> }</p>
+                     <p class="bp-header__desc">Rango = { <span id="r11"></span>, <span id="r21"></span>, <span id="r31"></span>, <span id="r41"></span>  } </p>
+                </form>
+                </p>
+                <div class="button_cont"><a  class="example_e" onclick="funciondr1()" target="_blank" rel="nofollow noopener">Calcular</a></div>
+                <form action="" class="mainForm">
+
+            <p class="bp-header__desc">Ejercicio 2: f(x)= x<sup>2</sup> + 3
+                 <br><class="ejercicios">Dominio = { <input id="n1" type="text"> <input id="n2" type="text"> <input id="n3" type="text"> <input id="n4" type="text"> }</p>
+                 <p class="bp-header__desc">Rango = { <span id="r1"></span>, <span id="r2"></span>, <span id="r3"></span>, <span id="r4"></span>  } </p>
+            </form>
+            </p>
+            <div class="button_cont"><a  class="example_e" onclick="funciondr()" target="_blank" rel="nofollow noopener">Calcular</a></div>
+                <p class="info">
+                </div>
+            <br>
+            <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+
+    <div class="page" id="page-training">
+        <header class="bp-header cf">
+            <center>
+                <h1 class="bp-header__title">Limites 1 variable</h1>
+            <p class="parrafo">
+                En análisis real y complejo, el concepto de límite es la clave de toque que formaliza la noción intuitiva de aproximación hacia un punto concreto de una sucesión o una función, a medida que los parámetros de esa sucesión o función se acercan a un determinado valor. En el análisis los conceptos de series convergentes, derivada e integral definida se fundamentan mediante el concepto de límite.
+            </p>
+            </center>
+
+            <div class="mainEjemplos">
+                <p class="info">
+                    <form action="" class="mainForm">
+                        <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/h9lEAU5-CSg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <p class="bp-header__desc">
+                    <div class="eq-c">
+                        Ejercicio 1:
+                        <div class="fraction">
+                        <span class="fup">lim</span>
+                        <span class="bar">/</span>
+                        <span class="fdn">x -> <input type="text" id="vx1"></span>
+                        </div>
+                        = 
+                        <div class="fraction">
+                            <span class="fup">x<sup>2</sup>- 9</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">x - 3</span>
+                            </div>
+                            <br>
+                            <span>resultado = </span><span id="vr1"></span>
+                        </div>
+                        <br>
+                   </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcion1v()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+                <p class="info">
+                    <form action="" class="mainForm">
+                <p class="bp-header__desc">
+                    <div class="eq-c">
+                        Ejercicio 2:
+                        <div class="fraction">
+                        <span class="fup">lim</span>
+                        <span class="bar">/</span>
+                        <span class="fdn">x -> <input type="text" id="vx2"></span>
+                        </div>
+                        = 
+                        <div class="fraction">
+                            <span class="fup">x<sup>4</sup>- 6</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">x + 10</span>
+                            </div>
+                            <br>
+                            <span>resultado = </span><span id="vr2"></span>
+                        </div>
+                        <br>
+                 </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcion2v()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+            </div>
+            <br>
+            <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+
+    <div class="page" id="page-training2">
+        <header class="bp-header cf">
+            <center>
+                <h1 class="bp-header__title">Limites 2 variables</h1>
+            <p class="parrafo">
+                En análisis real y complejo, el concepto de límite es la clave de toque que formaliza la noción intuitiva de aproximación hacia un punto concreto de una sucesión o una función, a medida que los parámetros de esa sucesión o función se acercan a un determinado valor. En el análisis los conceptos de series convergentes, derivada e integral definida se fundamentan mediante el concepto de límite.
+            </p>
+            </center>
+
+            <div class="mainEjemplos">
+                <p class="info">
+                    <form action="" class="mainForm">
+                        <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/h9lEAU5-CSg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <p class="bp-header__desc">
+                    <div class="eq-c">
+                        Ejercicio 1:
+                        <div class="fraction">
+                        <span class="fup">lim</span>
+                        <span class="bar">/</span>
+                        <span class="fdn">x -> <input type="text" id="v2x"></span>
+                        <span class="">y -> <input type="text" id="v2y"></span>
+                        </div>
+                        = 
+                        <div class="fraction">
+                            <span class="fup">x<sup>2</sup>- 9</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">2y - 3</span>
+                            </div>
+                            <br>
+                            <span>resultado = </span><span id="v2r"></span>
+                        </div>
+                        <br>
+                    </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcion2v1()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+                <p class="info">
+                    <form action="" class="mainForm">
+                <p class="bp-header__desc">
+                    <div class="eq-c">
+                        Ejercicio 2:
+                        <div class="fraction">
+                        <span class="fup">lim</span>
+                        <span class="bar">/</span>
+                        <span class="fdn">x -> <input type="text" id="v2x2"></span>
+                        <span class="">y -> <input type="text" id="v2y2"></span>
+                        </div>
+                        = 
+                        <div class="fraction">
+                            <span class="fup">x<sup>3</sup>- 6</span>
+                            <span class="bar">/</span>
+                            <span class="fdn">y + 10</span>
+                            </div>
+                            <br>
+                            <span>resultado = </span><span id="v2r2"></span>
+                        </div>
+                        <br>
+                    </form>
+                </p>
+                <div class="button_cont"><a class="example_e"  onclick="funcion2v2()" target="_blank" rel="nofollow noopener">Resolver</a></div>
+            </div>
+        
+            <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+
+    <div class="page" id="page-derivadas">
+        <header class="bp-header cf">
+            <center>
+                <h1 class="bp-header__title">Derivadas</h1>
+            <p class="parrafo">
+                En cálculo diferencial y análisis matemático, la derivada de una función es la razón de cambio instantánea con la que varía el valor de dicha función matemática, según se modifique el valor de su variable independiente. 
+            </p>
+            </center>
+
+            <div class="mainEjemplos">
+                <p class="info">
+                    <form action="" class="mainForm">
+                        <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/uK4-s0ojHFg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                        
+
+                        <!-- <center>
+                            <img src="images/derivadas.jpg" alt="">
+                        </center>                         -->
+
+                        
+                            <center>
+                                <table>
+                                <tr>
+                                  <td>Función</td>
+                                  <td>Derivada</td>
+                                </tr>
+                                <tr>
+                                  <td>1</td>
+                                  <td>0</td>
+                                </tr>
+                                <tr>
+                                  <td>x</td>
+                                  <td>1</td>
+                                </tr>
+                                <tr>
+                                  <td>x<sup>2</sup></td>
+                                  <td>2x</td>
+                                </tr>
+                                <tr>
+                                    <td>sen x</td>
+                                    <td>cos x</td>
+                                </tr>
+                                <tr>
+                                    <td>cos x</td>
+                                    <td>-sen x</td>
+                                </tr>
+                              </table>
+                               <br>
+                              <div class="button_cont"><a class="example_e" target="_blank" href="htm/derivadas.html">Ver ejemplos</a></div>
+                            </center>
+        <br><br><br><br>
+        <center>
+            <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </center>
+             
+    </header>
+    </div>
+
+    <div class="page" id="page-buy">
+        <header class="bp-header cf">
+            <center>
+            <h1 class="bp-header__title">Maximos</h1>
+            <p  class="parrafo">Es el Punto en que la ordenada es mayor o igual que los puntos en su entorno. Dada una función, f(x), se llama máximo o máximo absoluto al mayor valor que toma dicha función.</p>
+            </center>
+            <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/ppI4NKTScxw"" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             
+            <p class="bp-header__desc"><b>Función:</b></p>
+            <p class="bp-header__desc">y= 4x - x<sup>2</sup></p>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('respuesta6','est1')">Solución</a></div>
+            <div id="respuesta6"  style="display: none">
+                <p class="bp-header__desc">y<sup>1</sup>= 4 - 2x</p>
+                <p class="bp-header__desc"><b>Igualamos a cero:</b></p>
+                <p class="bp-header__desc">4x - 2x= 0</p>
+                <p class="bp-header__desc">4 = 2x</p>
+                <p class="bp-header__desc">x = <Sup>4</sup>/<sub>2</sub> x = 2</p>
+                <p class="bp-header__desc"><b>El punto crítico es:</b> x = 2</p>    
+                <p class="bp-header__desc"><b>Para encontrar el valor de Y:</b></p>
+                <p class="bp-header__desc">y = 4x - x<sup>2</sup></p>
+                <p class="bp-header__desc">y = 4(2) - 2<sup>2</sup></p>
+                <p class="bp-header__desc">y = 8 - 4 y = 4</p>
+                <p class="bp-header__desc"> <b>Coodenada de valor máximo: (2,4)</b></p>
+            </div>
+            <br>
+            <div id="minimos2" style="display: none">
+                <p class="bp-header__desc">Sea <img src="./images/minimos1.PNG" alt=""> una función y sea <img src="./images/minimos1.PNG" alt="">, entonces</p>
+                <p class="bp-header__desc"> <img src="./images/minimos3.PNG" alt="">  es un máximo relativo de <img src="./images/minimos4.PNG" alt=""> si existe <img src="./images/minimos5.PNG" alt=""> tal que:</p>
+                <img src="./images/minimos6.PNG" alt="">
+
+            </div>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('minimos2','est1')">Definición formal</a></div>
+            <br>
+
+             <br><br>
+            <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        
+            </header>
+            
+            
+    </div>
+
+    <div class="page" id="page-blog">
+        <header class="bp-header cf">
+            <center>
+            <h1 class="bp-header__title">Minimos</h1>
+            <p  class="parrafo">
+                Es el Punto en que la ordenada es menor o igual que los puntos en su entorno. Un mínimo en el punto de la función cuando esta pasa de decreciente a creciente.
+            </p>
+            </center>
+            <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/2YCea06t_Qc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <div id="minimos2" style="display: none">
+                <p class="bp-header__desc">Sea <img src="./images/minimos1.PNG" alt=""> una función y sea <img src="./images/minimos1.PNG" alt="">, entonces</p>
+                <p class="bp-header__desc"> <img src="./images/minimos3.PNG" alt="">  es un mínimo relativo de <img src="./images/minimos4.PNG" alt=""> si existe <img src="./images/minimos5.PNG" alt=""> tal que:</p>
+                <img src="./images/minimos6.PNG" alt="">
+
+            </div>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('minimos2','est1')">Definición formal</a></div>
+            <br>
+            <div id="minimos3" style="display: none">
+                <p class="bp-header__desc">Los extremos de la función no son absolutos.</p>
+                <p class="bp-header__desc">El vértice de una parábola siempre es un extremo absoluto. Por ejemplo, la siguiente parábola tiene un mínimo relativo en <b>(-1,1):</b></p>
+                <img src="./images/grafica.png" alt="">
+            </div>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('minimos3','est1')">Ejemplo</a></div>
+            <br>
+            <p class="bp-header__desc"><b>Función:</b></p>
+            <p class="bp-header__desc">f(x) = 3x<sup>2</sup> + 6x</p>
+            <div id="minimos1" style="display: none">
+                <p class="bp-header__desc">0 = 3x (x+2)</p>
+                <p class="bp-header__desc">0 = x+2</p>
+                <p class="bp-header__desc"><b>-2 = x</b></p>
+                <p class="bp-header__desc">0 = 3x</p>
+                <p class="bp-header__desc"><b>0 = x</b></p>
+                <p class="bp-header__desc">f(0) = 0 + 3.0 + 1</p>
+                <p class="bp-header__desc">f(0) = 1</b></p>
+                <p class="bp-header__desc"><b>resultado: (0,1)</b></p>
+            </div>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('minimos1','est1')">Solución</a></div>
+            <br>
+                            
+            <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+    
+    <div class="page" id="page-contact">
+        <header class="bp-header cf">
+            <center>
+            <h1 class="bp-header__title">Punto de inflexión</h1>
+            <p  class="parrafo">El punto que, en una función continua, separa la parte convexa de la cóncava, se llama punto de inflexión de la función. En ellos la función no es cóncava ni convexa sino que hay cambio de concavidad a convexidad o al revés.</p>
+        </center>
+        <p class="bp-header__desc"><b>Función:</b></p>
+        <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/Vwsptj6MtwI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <p id="color" class="bp-header__desc">f(x) = x<sup>3</sup> + 8x<sup>2</sup> + 17x + 10</p>
+        <div id="respuesta3"  style="display: none">
+            <p class="bp-header__desc">f<sup>1</sup>(x) = 3x<sup>2</sup>+ 16x + 17</p>
+            <p class="bp-header__desc"></p>
+            <p class="bp-header__desc">f<sup>11</sup>(x) = 6x + 16</p>
+            <p class="bp-header__desc">0 = 6x + 16</p>
+            <p class="bp-header__desc"><sup>-16</sup>/<sub>6</sub> = x</p>
+            <p class="bp-header__desc">resultado: <b>x = <sup>-8</sup>/<sub>3</sub></b></p>
+        </div>
+        <div class="button_cont"><a class="example_e" onClick="desplegar('respuesta3','est1')">Solución</a></div>
+        <br>
+        <p id="color" class="bp-header__desc">f(x) = x<sup>3</sup> - 3x<sup>2</sup> + 6x - 6</p>
+        <div id="respuesta4"  style="display: none">
+            <p class="bp-header__desc">f<sup>1</sup>(x) = 3x<sup>2</sup>- 6x + 6</p>
+            <p class="bp-header__desc">f<sup>11</sup>(x) = 6x - 6</p>
+            <p class="bp-header__desc">6x - 6 = 0</b></p>
+            <p class="bp-header__desc">resultado: <b>x = 1</b></p>
+        </div>
+        <div class="button_cont"><a class="example_e" onClick="desplegar('respuesta4','est1')">Solución</a></div>
+        
+        <br>
+        <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+
+    <div class="page" id="page-contact2">
+        <header class="bp-header cf">
+            <center>
+            <h1 class="bp-header__title">Integrales</h1>
+            <p  class="parrafo">La integración es un concepto fundamental del cálculo y del análisis matemático. Básicamente, una integral es una generalización de la suma de infinitos sumandos, infinitesimalmente pequeños: una suma continua. La integral es la operación inversa a la derivada.</p>
+        </center>
+        <iframe  align="right" width="560" height="415" src="https://www.youtube.com/embed/d7Y9Om4KCUM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <center>
+            <p>Integral 1</p>
+                <img src="./images/integral3.jpg" alt="">
+                <br>
+                <div class="button_cont"><a class="example_e" onClick="desplegar('respuesta2','est1')">Solución</a></div>
+                <!-- <div class="button_cont"><a class="example_e"  onclick="funcion2v1()" target="_blank" rel="nofollow noopener">Resolver</a></div> -->
+                <div id="respuesta2" style="display: none"> 
+                    <p>No tenemos que realizar ninguna operación para resolver esta integral porque e<sup>x</sup> es la derivada de e<sup>x</sup> . Sólo debemos acordarnos de escribir la constante de integración C.</p>
+                    <img src="./images/integral4.jpg" alt="">
+                </div><!--endResp1-->
+           </center>
+       <center>
+        <p>Integral 2</p>
+            <img src="./images/integral1.jpg" alt="">
+            <br>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('respuesta1','est1')">Solución</a></div>
+            <!-- <div class="button_cont"><a class="example_e"  onclick="funcion2v1()" target="_blank" rel="nofollow noopener">Resolver</a></div> -->
+            <div id="respuesta1" style="display: none"> 
+                <p>Aplicaremos la <strong>propiedad</strong> &quot;una constante puede entrar o salir de la integral&quot;. </p>
+                <img src="./images/integral2.png" alt="">
+            </div><!--endResp1-->
+       </center>
+       
+        <br>
+        <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+
+    <div class="page" id="derivada-parcial">
+        <header class="bp-header cf">
+            <center>
+            <h1 class="bp-header__title">Derivada parcial</h1>
+            <p  class="parrafo">Una derivada parcial de una función de diversas variables, es la derivada respecto a cada una de esas variables manteniendo las otras como constantes. Las derivadas parciales son útiles en cálculo vectorial, geometría diferencial, funciones analíticas, física, matemática, etc. </p>
+        </center>
+        <center>
+
+            <p class="bp-header__desc"><b>ejemplos:</b></p>
+            <iframe  align="right" width="560" height="375" src="https://www.youtube.com/embed/jM8WkAIKAVM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <p class="bp-header__desc"><b>f(x,y)= 3x<sup>3</sup>y - 2x<sup>2</sup>y<sup>2</sup> + y<sup>3</sup></b> determinar <b>f <sub>x</sub>(1,-2)</b> y <b>f<sub>y</sub>(1,-2)</b> </p>
+                <div class="button_cont"><a class="example_e" onClick="desplegar('dp2','est1')">Ver solución</a></div>
+                    <div id="dp2" style="display: none"> 
+                        <p class="bp-header__desc"> Como <i>f<sub>x</sub>(x,y)= 9x<sup>2</sup> -  4xy<sup>2</sup></i> </p>
+                        <p class="bp-header__desc"><i>f<sub>x</sub>(1,-2)= -34</i></p>
+                        <p class="bp-header__desc"> Como <i>f<sub>y</sub>(x,y)= 3x<sup>3</sup> -  4x<sup>2</sup>y</i> + 3y<sup>2</sup> </p>
+                        <p class="bp-header__desc"><i>f<sub>y</sub>(1,-2)= 23</i></p>                       
+                    </div>
+
+                    <br>
+                
+            <p class="bp-header__desc">f<sub>yy</sub>(x,y)= 2x<sup>2</sup> * 2xe<sup>2xy</sup></p>
+                <div class="button_cont"><a class="example_e" onClick="desplegar('dp3','est1')">Ver solución</a></div>
+                    <div id="dp3" style="display: none"> 
+                        <p class="bp-header__desc"><b>4x<sup>3</sup> e<sup>2xy</sup></b></p>                       
+                    </div>
+                
+                    <br>
+                
+            <p class="bp-header__desc">f(x,y)= <sup>1</sup> / <sub>x</sub> xy<sup>2</sup></p>
+                <div class="button_cont"><a class="example_e" onClick="desplegar('dp1','est1')">Ver solución</a></div>
+                    <div id="dp1" style="display: none"> 
+                        <p class="bp-header__desc">fx= -x<sup>-2</sup> + y<sup>2</sup></p>
+                        <p class="bp-header__desc">fx= -1 / x<sup>2</sup>  + y<sup>2</sup></p>
+                        <p class="bp-header__desc">fxx= 2x<sup>-3</sup></p>
+                        <p class="bp-header__desc">fxx= 2 / x<sup>3</sup></p>
+                        <p class="bp-header__desc"><b>fxy= 2y</b></p>                        
+                    </div>
+                <br>
+
+                
+
+
+           </center>
+       
+        <br>
+        <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+
+    <div class="page" id="reglas-integracion">
+        <header class="bp-header cf">
+            <center>
+            <h1 class="bp-header__title">Reglas de integración</h1>
+            <p  class="parrafo">Se entiende por método de integración a la integral de las diferentes técnicas elementales usadas (a veces de forma combinada) para calcular una antiderivada o integral indefinida de una función. Así, dada una función f(x).</p>
+        </center>
+        <iframe  align="right" width="560" height="315" src="https://www.youtube.com/embed/oIU3pU_BTUs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <center>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('tabla','est1')">Tabla</a></div>
+            <div id="tabla" style="display: none" >
+                <img src="./images/reglas_i.jpg" alt="">
+            </div>
+            <br>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('integral2','est1')">Integral de una potencia</a></div>
+            <div id="integral2" style="display: none" >
+                <p>La integral de una potencia es igual a la variable elevada a la potencia <i>n+1</i> sobre <i>n+1</i> sumando una constante.</p>
+                <img src="./images/reglas3.PNG" alt="">
+            </div>
+            <br>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('integral1','est1')">Integral de una constante</a></div>
+            <div id="integral1" style="display: none" >
+                <center>
+                    La integral de una constante es igual a la constante por la variable x.
+                    <img src="./images/reglas2.PNG" alt="">
+                </center>
+            </div>
+            <br>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('ejemplo1','est1')">Formula 1</a></div>
+            <div id="ejemplo1" style="display: none" >
+                <img src="./images/reglas3.PNG" alt="">
+            </div>
+            <br>
+            <div class="button_cont"><a class="example_e" onClick="desplegar('ejemplo2','est1')">Formula 2</a></div>
+            <div id="ejemplo2" style="display: none" >
+                <img src="./images/rdi2.PNG" alt="">
+            </div>
+            
+            
+
+           </center>
+       
+        <br>
+        <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+
+    <div class="page" id="page-contact3">
+        <header class="bp-header cf">
+
+            <form id="form">
+                <label for="eq">Introduce una ecuación</label>
+                <input type="text" id="eq" value="4 * sin(x) + 5 * cos(x/2)" />
+                <input type="submit" value="Dibujar" />
+              </form>
+              
+              <div id="plot"></div>
+
+
+        
+        <div class="button_cont" ><a class="" href="https://www.geogebra.org/3d" target="_blank" rel="nofollow noopener">Graficar en 3D</a></div>
+            <div class="button_cont" ><a class="" href="https://es.symbolab.com/solver/functions-calculator" target="_blank" rel="nofollow noopener">Calculadora de funciones </a></div>
+        </header>
+    </div>
+
+</div>
+<!-- /pages-stack -->
+<button class="menu-button"><span>Menu</span></button>
+<script src="js/classie.js"></script>
+<script src="js/main.js"></script>
+<script src="js/carrusel.js"></script>
+</body>
+<script>
+  function funcion1() {
+  var x=    document.getElementById("x").value;
+  var y= document.getElementById("y").value;
+  var exp= (y*y);
+  var res = (x-exp);
+  document.getElementById("result1").innerHTML= ""+ res;
+  }
+
+  function funcion2() {
+      var x2=    document.getElementById("x2").value;
+      var y2= document.getElementById("y2").value;
+    var e = 3;
+    var exp= (y2*y2*y2);
+    var paso= (e*x2);
+    var paso2= (paso-exp);
+      document.getElementById("result2").innerHTML= ""+ paso2;
+
+  }
+  function funcionU(){
+    var x3= document.getElementById("a").value;
+    var result= x3-8;
+    document.getElementById("result3").innerHTML= ""+result;
+
+  }
+  function funcionU2(){
+      var x4= document.getElementById("b").value;
+      var first= (3*x4-9);
+      var second= (2*x4);
+      var result2= (first+second);
+      document.getElementById("result4").innerHTML=""+result2;
+
+  }
+  function funcionE(){
+    var t= document.getElementById("w1").value;
+    var t2=document.getElementById("w2").value;
+    var t3=document.getElementById("w3").value;
+
+    var f1= (t2*t2*t2);
+    var f2= (t-f1);
+    var resF= (f2-t3)
+      document.getElementById("finalres").innerHTML= ""+resF;
+
+  }
+  function funcionR(){
+     var l1= document.getElementById("j1").value;
+     var l2= document.getElementById("j2").value;
+     var l3= document.getElementById("j3").value;
+
+     var k1= (2*l1);
+     var h= (l2*l2);
+     var k2= (3*h);
+     var k3= (k1-k2);
+     var k4=(k3-l3);
+
+     document.getElementById("resultU").innerHTML= +""+ k4;
+
+
+  }
+  function funcion1v(){
+    var vx1 = document.getElementById("vx1").value;
+    var vr1 = ((vx1*vx1)-9)/(vx1-3);
+    document.getElementById("vr1").innerHTML=""+vr1;
+  }
+
+  function funcion2v(){
+    var vx2 = document.getElementById("vx2").value;
+    var vr2 = ((vx2*vx2*vx2*vx2)-6)/(vx2+10);
+    document.getElementById("vr2").innerHTML=""+vr2;
+  }
+
+  function funcion2v1(){
+    var v2x = document.getElementById("v2x").value;
+    var v2y = document.getElementById("v2y").value;
+    var vr1 = ((v2x*v2x)-9)/((2*v2y)-3);
+    document.getElementById("v2r").innerHTML=""+vr1;
+  }
+
+  function funcion2v2(){
+    var v2x2 = document.getElementById("v2x2").value;
+    var v2y2 = document.getElementById("v2y2").value;
+    var v2r2 = ((v2x2*v2x2*v2x2)-6)/(v2y2+10);
+    document.getElementById("v2r2").innerHTML=""+v2r2;
+  }
+
+  function funciondr(){
+    var n1 = document.getElementById("n1").value;
+    var n2 = document.getElementById("n2").value;
+    var n3 = document.getElementById("n3").value;
+    var n4 = document.getElementById("n4").value;
+    var r1 = ((n1*n1));
+    document.getElementById("r1").innerHTML=""+r1;
+    var r2 = ((n2*n2));
+    document.getElementById("r2").innerHTML=""+r2;
+    var r3 = ((n3*n3));
+    document.getElementById("r3").innerHTML=""+r3;
+    var r4 = ((n4*n4));
+    document.getElementById("r4").innerHTML=""+r4;
+  }
+
+  function funciondr1(){
+    var n11 = document.getElementById("n11").value;
+    var n21 = document.getElementById("n21").value;
+    var n31 = document.getElementById("n31").value;
+    var n41 = document.getElementById("n41").value;
+    var r11 = ((n11*n11));
+    document.getElementById("r11").innerHTML=""+r11;
+    var r21 = ((n21*n21));
+    document.getElementById("r21").innerHTML=""+r21;
+    var r31 = ((n31*n31));
+    document.getElementById("r31").innerHTML=""+r31;
+    var r41 = ((n41*n41));
+    document.getElementById("r41").innerHTML=""+r41;
+  }
+
+  function desplegar(tabla_a_desplegar,estadoT) { 
+    var tablA = document.getElementById(tabla_a_desplegar); 
+    var estadOt = document.getElementById(estadoT); 
+
+    switch(tablA.style.display) { 
+    case "none": 
+    tablA.style.display = "block"; 
+    estadOt.innerHTML = "Ocultar coneNido" 
+    break; 
+    default: 
+    tablA.style.display = "none"; 
+    estadOt.innerHTML = "Mostrar coNteNido" 
+    break; 
+    } 
+    } 
+
+    function draw() {
+        try {
+          functionPlot({
+            target: '#plot',
+            data: [{
+              fn: document.getElementById('eq').value,
+              sampler: 'builtIn',  // this will make function-plot use the evaluator of math.js
+              graphType: 'polyline'
+            }]
+          });
+        }
+        catch (err) {
+          console.log(err);
+          alert(err);
+        }
+      }
+    
+      document.getElementById('form').onsubmit = function (event) {
+        event.preventDefault();
+        draw();
+      };
+    
+      draw();
+
+</script>
+
+</html>

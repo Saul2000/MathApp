@@ -1,0 +1,32 @@
+.parrafo {
+    text-align: justify;
+    width: 800px;
+    font-size: 18px;
+}
+
+.video {
+    padding-bottom:20px ;
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle; 
+    margin: 0 0.2em 0.4ex;
+    text-align: center;
+}
+.fraction > span {
+    display: block;
+    padding-top: 0.15em;
+}
+.fraction span.fdn {border-top: thin solid #fff;}
+.fraction span.bar {display: none;}
+
+table, td {
+    border:1px solid #fff;
+  }
+  td{
+      padding: 10px 20px;
+  }
+  table {
+    border-collapse:collapse;
+  }
